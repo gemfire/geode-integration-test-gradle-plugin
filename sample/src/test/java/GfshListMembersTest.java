@@ -13,18 +13,27 @@
  * the License.
  */
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import org.junit.Rule;
 import org.junit.Test;
 
+import org.apache.geode.test.junit.rules.gfsh.GfshExecution;
 import org.apache.geode.test.junit.rules.gfsh.GfshRule;
 
-public class UseGfshRule {
+public class GfshListMembersTest {
   @Rule
   public GfshRule gfshRule = new GfshRule();
 
   @Test
+  public void foo() {
+  assertThat(true).isFalse();
+  }
+  @Test
   public void useit(){
     gfshRule.execute("start locator", "start server");
-    gfshRule.execute("connect", "list members");
+    GfshExecution listMembers = gfshRule.execute("connect", "list members");
+
+    assertThat(listMembers.getStdOutLines()).contains("Successfully connected to:");
   }
 }

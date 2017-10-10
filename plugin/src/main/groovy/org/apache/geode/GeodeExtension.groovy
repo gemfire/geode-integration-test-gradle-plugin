@@ -1,3 +1,4 @@
+package org.apache.geode
 /*
  * Licensed to the Apache Software Foundation (ASF) under one or more contributor license
  * agreements. See the NOTICE file distributed with this work for additional information regarding
@@ -13,17 +14,6 @@
  * the License.
  */
 
-import org.junit.Assert;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.Assert.*;
-
-import org.apache.geode.test.junit.rules.gfsh.GfshRule;
-
-public class Example {
-
-  @Test
-  public void testGeodeHome() {
-    Assert.assertNotNull(System.getenv("GEODE_HOME"));
-  }
+class GeodeExtension {
+    String version = "latest.release"
 }

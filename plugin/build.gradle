@@ -1,0 +1,32 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+apply plugin: 'java-gradle-plugin'
+
+archivesBaseName = 'geode-integration-plugin'
+group = 'org.apache.geode'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven { url 'https://repository.apache.org/content/repositories/snapshots' }
+    maven { url 'https://repository.apache.org/content/repositories/releases' }
+}
+
+dependencies {
+    compile localGroovy()
+    compile gradleApi()
+
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    testCompile group: 'org.assertj', name: 'assertj-core', version: '3.8.0'
+    testCompile('org.spockframework:spock-core:1.1-groovy-2.4') {
+        exclude group: 'org.codehaus.groovy'
+    }
+}
+
+uploadArchives{
+    repositories{
+        mavenDeployer {
+            repository(url: "file://$projectDir/../repo")
+        }
+    }
+}

@@ -1,3 +1,4 @@
+package org.apache.geode
 /*
  * Licensed to the Apache Software Foundation (ASF) under one or more contributor license
  * agreements. See the NOTICE file distributed with this work for additional information regarding
@@ -21,7 +22,7 @@ import org.gradle.api.file.FileCopyDetails
 import org.gradle.api.tasks.Sync
 import org.gradle.api.tasks.testing.Test
 
-class GeodeIntegration implements Plugin<Project> {
+class GeodeIntegrationPlugin implements Plugin<Project> {
     @Override
     void apply(Project project) {
         GeodeExtension extension = project.extensions.create("geodeIntegration", GeodeExtension)
@@ -45,6 +46,11 @@ class GeodeIntegration implements Plugin<Project> {
                 file.path = (file.path - ~/apache-geode-[0-9.]+(-SNAPSHOT)?/)
             }
             into "${project.buildDir}/install/apache-geode/"
+
+            doLast{
+                println("Using " + project.configurations.geodeIntegration.singleFile.name)
+                println("GEODE_HOME is set to '${destinationDir}'")
+            }
         }
 
         project.tasks.withType(Test) {

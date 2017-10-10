@@ -13,6 +13,13 @@
  * the License.
  */
 
-class GeodeExtension {
-    String version = "1.3.0-SNAPSHOT"
+import org.junit.Assert;
+import org.junit.Test;
+
+public class GeodeHomeTest {
+
+  @Test
+  public void testGeodeHome() {
+    Assert.assertNotNull(System.getenv("GEODE_HOME"));
+  }
 }

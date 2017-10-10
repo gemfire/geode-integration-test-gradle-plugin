@@ -24,6 +24,8 @@
 .idea/**/libraries
 .idea/
 
+repo/
+
 # CMake
 cmake-build-debug/
 
