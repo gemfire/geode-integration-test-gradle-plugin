@@ -2,8 +2,8 @@ apply plugin: 'groovy'
 apply plugin: 'maven'
 apply plugin: 'java-gradle-plugin'
 
-archivesBaseName = 'geode-integration-plugin'
-group = 'org.apache.geode'
+archivesBaseName = 'gradle-geode-integration-test-plugin'
+group = 'com.jaredjstewart'
 version = '1.0-SNAPSHOT'
 
 repositories {

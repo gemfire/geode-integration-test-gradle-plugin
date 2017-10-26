@@ -1,4 +1,4 @@
-package org.apache.geode
+package com.jaredjstewart
 
 import org.gradle.testkit.runner.BuildResult
 import org.gradle.testkit.runner.GradleRunner
