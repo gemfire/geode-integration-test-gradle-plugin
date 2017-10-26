@@ -35,6 +35,8 @@ class FunctionalTest  extends Specification {
             plugins {
                 id 'GeodeIntegration'
             }
+            
+            apply plugin: 'java'    
         """
     }
 
@@ -51,7 +53,7 @@ class FunctionalTest  extends Specification {
         when:
         BuildResult result = GradleRunner.create()
                 .withProjectDir(testProjectDir.root)
-                .withArguments('installGeode')
+                .withArguments('test')
                 .withPluginClasspath()
                 .build()
 
@@ -74,7 +76,7 @@ class FunctionalTest  extends Specification {
         when:
         BuildResult result = GradleRunner.create()
                 .withProjectDir(testProjectDir.root)
-                .withArguments('installGeode')
+                .withArguments('test')
                 .withPluginClasspath()
                 .build()
 
