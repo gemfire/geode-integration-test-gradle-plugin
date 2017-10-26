@@ -22,11 +22,3 @@ dependencies {
         exclude group: 'org.codehaus.groovy'
     }
 }
-
-uploadArchives{
-    repositories{
-        mavenDeployer {
-            repository(url: "file://$projectDir/../repo")
-        }
-    }
-}

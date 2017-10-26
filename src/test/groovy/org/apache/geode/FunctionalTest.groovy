@@ -38,27 +38,6 @@ class FunctionalTest  extends Specification {
         """
     }
 
-    def "can use BuildResultault version"() {
-        buildFile << """
-            repositories {
-                mavenCentral() 
-            }
-            
-            geodeIntegration {}
-        """
-
-        given:
-        BuildResult result = GradleRunner.create()
-                .withProjectDir(testProjectDir.root)
-                .withArguments('installGeode')
-                .withPluginClasspath()
-                 .withArguments()
-                .build()
-
-        expect:
-        result.task(":installGeode").outcome == SUCCESS
-    }
-
     def "can configure release version"() {
         buildFile << """
             repositories {

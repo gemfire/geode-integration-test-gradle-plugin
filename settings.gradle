@@ -1,1 +1,2 @@
-include 'plugin', 'sample'
+rootProject.name = 'geode-integration-test-example'
+
