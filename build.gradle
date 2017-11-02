@@ -1,3 +1,7 @@
+plugins {
+    id 'com.gradle.plugin-publish' version '0.9.7'
+}
+
 apply plugin: 'groovy'
 apply plugin: 'maven'
 apply plugin: 'java-gradle-plugin'
@@ -22,3 +26,19 @@ dependencies {
         exclude group: 'org.codehaus.groovy'
     }
 }
+
+pluginBundle {
+    website = 'https://github.com/jaredjstewart/geode-integration-plugin'
+    vcsUrl = 'https://github.com/jaredjstewart/gradle-geode-integration-test-plugin.git'
+
+    plugins {
+        geodeIntegrationTestPlugin {
+            id = 'com.jaredjstewart.GeodeIntegrationPlugin'
+            displayName = 'Plugin for installing Apache Geode'
+            description = 'This Gradle plugin adds a task (:installGeode) that downloads a distribution of Geode via Maven, unzips it into build/install/apache-geode, and sets the proper environment variable for any tests that are run through Gradle.'
+            tags = ['geode', 'apache']
+            version = '1.0-SNAPSHOT'
+        }
+    }
+}
+
