@@ -6,7 +6,7 @@ apply plugin: 'groovy'
 apply plugin: 'maven'
 apply plugin: 'java-gradle-plugin'
 
-archivesBaseName = 'gradle-geode-integration-test-plugin'
+archivesBaseName = 'geode-integration-test-gradle-plugin'
 group = 'com.jaredjstewart'
 version = '1.0-SNAPSHOT'
 
