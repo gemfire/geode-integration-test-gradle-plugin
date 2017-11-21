@@ -7,7 +7,7 @@ apply plugin: 'maven'
 apply plugin: 'java-gradle-plugin'
 
 archivesBaseName = 'geode-integration-test-gradle-plugin'
-group = 'com.jaredjstewart'
+group = 'io.pivotal'
 version = '1.0-SNAPSHOT'
 
 repositories {
@@ -33,7 +33,7 @@ pluginBundle {
 
     plugins {
         geodeIntegrationTestPlugin {
-            id = 'com.jaredjstewart.GeodeIntegrationPlugin'
+            id = 'io.pivotal.GeodeIntegrationTestPlugin'
             displayName = 'Plugin for installing Apache Geode'
             description = 'This Gradle plugin adds a task (:installGeode) that downloads a distribution of Geode via Maven, unzips it into build/install/apache-geode, and sets the proper environment variable for any tests that are run through Gradle.'
             tags = ['geode', 'apache']

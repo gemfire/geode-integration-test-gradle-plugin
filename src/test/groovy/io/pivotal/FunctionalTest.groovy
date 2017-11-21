@@ -1,4 +1,4 @@
-package com.jaredjstewart
+package io.pivotal
 
 import org.gradle.testkit.runner.BuildResult
 import org.gradle.testkit.runner.GradleRunner
