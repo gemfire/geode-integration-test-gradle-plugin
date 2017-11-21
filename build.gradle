@@ -29,14 +29,14 @@ dependencies {
 }
 
 pluginBundle {
-    website = 'https://github.com/jaredjstewart/geode-integration-plugin'
-    vcsUrl = 'https://github.com/jaredjstewart/gradle-geode-integration-test-plugin.git'
+    website = 'https://cwiki.apache.org/confluence/display/GEODE/Test+your+application'
+    vcsUrl = 'https://github.com/gemfire/geode-integration-test-gradle-plugin'
 
     plugins {
         geodeIntegrationTestPlugin {
             id = 'io.pivotal.GeodeIntegrationTestPlugin'
             displayName = 'Plugin for installing Apache Geode'
-            description = 'This Gradle plugin adds a task (:installGeode) that downloads a distribution of Geode via Maven, unzips it into build/install/apache-geode, and sets the proper environment variable for any tests that are run through Gradle.'
+            description = 'This Gradle plugin downloads a distribution of Geode via Maven, unzips it into build/install/apache-geode, and sets the proper environment variable for any tests that are run through Gradle.'
             tags = ['geode', 'apache']
             version = '1.0-SNAPSHOT'
         }
