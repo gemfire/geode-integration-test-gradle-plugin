@@ -33,20 +33,17 @@ class FunctionalTest  extends Specification {
         buildFile = testProjectDir.newFile('build.gradle')
         buildFile << """
             plugins {
-                id 'GeodeIntegration'
+                id 'io.pivotal.GeodeIntegrationTestPlugin' version '1.0-SNAPSHOT'
             }
             
             apply plugin: 'java'    
         """
     }
 
-    def "can configure release version"() {
+    def "does not need a version specified"() {
         buildFile << """
             repositories {
-                maven { url 'https://repository.apache.org/content/repositories/releases' }
-            }
-            geodeIntegration {
-                version = '1.2.0'
+                mavenCentral()
             }
         """
 
@@ -59,7 +56,29 @@ class FunctionalTest  extends Specification {
 
         then:
         result.task(":installGeode").outcome == SUCCESS
-        verifyVersion(result, "1.2.0")
+        verifyInstallation()
+    }
+
+    def "can configure release version"() {
+        buildFile << """
+            repositories {
+                maven { url 'https://repository.apache.org/content/repositories/releases' }
+            }
+            geodeIntegration {
+                version = '1.3.0'
+            }
+        """
+
+        when:
+        BuildResult result = GradleRunner.create()
+                .withProjectDir(testProjectDir.root)
+                .withArguments('test')
+                .withPluginClasspath()
+                .build()
+
+        then:
+        result.task(":installGeode").outcome == SUCCESS
+        verifyVersion(result, "1.3.0")
         verifyInstallation()
     }
 
@@ -69,7 +88,7 @@ class FunctionalTest  extends Specification {
                 maven { url 'https://repository.apache.org/content/repositories/snapshots' }
             }
             geodeIntegration {
-                version = '1.3.0-SNAPSHOT'
+                version = '1.4.0-SNAPSHOT'
             }
         """
 
@@ -83,7 +102,7 @@ class FunctionalTest  extends Specification {
         then:
         result.task(":installGeode").outcome == SUCCESS
 
-        verifyVersion(result, "1.3.0-SNAPSHOT")
+        verifyVersion(result, "1.4.0-SNAPSHOT")
         verifyInstallation()
     }
 

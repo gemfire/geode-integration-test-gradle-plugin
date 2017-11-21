@@ -22,7 +22,7 @@ import org.gradle.api.file.FileCopyDetails
 import org.gradle.api.tasks.Sync
 import org.gradle.api.tasks.testing.Test
 
-class GeodeIntegrationPlugin implements Plugin<Project> {
+class GeodeIntegrationTestPlugin implements Plugin<Project> {
     @Override
     void apply(Project project) {
         GeodeExtension extension = project.extensions.create("geodeIntegration", GeodeExtension)
